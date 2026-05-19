@@ -737,8 +737,7 @@ chatMessages.innerHTML += `
     <div class="bubble">
       ${aiReply}
     </div>
-    ${shouldShowMenuSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
-  </div>
+    ${shouldShowSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
   </div>
 `;
 
@@ -762,94 +761,4 @@ function getMenuSuggestions() {
   document.getElementById("chat-input").value = text;
   sendMessage();
 }
-
-function getSuggestions(message) {
-  const text = message.toLowerCase();
-
-  if (text.includes("lover") || text.includes("delight")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('I want to order Lovers Delight')">Order Lovers Delight</button>
-        <button onclick="sendSuggestion('Can I customize Lovers Delight?')">Customize it</button>
-        <button onclick="sendSuggestion('What toppings go well with Lovers Delight?')">Best toppings</button>
-      </div>
-    `;
-  }
-
-  if (text.includes("inferno")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('I want to order Inferno')">Order Inferno</button>
-        <button onclick="sendSuggestion('Is Inferno spicy?')">Is it spicy?</button>
-        <button onclick="sendSuggestion('Can I customize Inferno?')">Customize it</button>
-      </div>
-    `;
-  }
-
-  if (text.includes("crispy") || text.includes("onion")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('I want to order Crispy Onion')">Order Crispy Onion</button>
-        <button onclick="sendSuggestion('What comes with Crispy Onion?')">What comes with it?</button>
-        <button onclick="sendSuggestion('Can I customize Crispy Onion?')">Customize it</button>
-      </div>
-    `;
-  }
-
-  if (text.includes("custom") || text.includes("topping") || text.includes("sauce") || text.includes("patty") || text.includes("bun")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('What toppings can I choose?')">Choose toppings</button>
-        <button onclick="sendSuggestion('Can I choose my bun and patty?')">Bun and patty</button>
-        <button onclick="sendSuggestion('What sauces do you recommend?')">Sauce ideas</button>
-      </div>
-    `;
-  }
-
-  if (text.includes("menu") || text.includes("burger") || text.includes("recommend")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('Tell me about Inferno')">Inferno</button>
-        <button onclick="sendSuggestion('Tell me about Lovers Delight')">Lovers Delight</button>
-        <button onclick="sendSuggestion('Tell me about Crispy Onion')">Crispy Onion</button>
-      </div>
-    `;
-  }
-
-  if (text.includes("order") || text.includes("delivery")) {
-    return `
-      <div class="suggestions">
-      <button onclick="sendSuggestion('How do I use the Order Now button?')">Use Order Now</button>
-      <button onclick="sendSuggestion('Can I customize before ordering?')">Customize first</button>
-      <button onclick="sendSuggestion('How can I contact support?')">Contact support</button>
-    </div>
-    `;
-  }
-
-  if (text.includes("support") || text.includes("help") || text.includes("contact") || text.includes("phone") || text.includes("call")) {
-  return `
-    <div class="suggestions">
-      <button onclick="sendSuggestion('What is Burger Flames phone number?')">Phone number</button>
-      <button onclick="sendSuggestion('Where is Burger Flames located?')">Location</button>
-      <button onclick="sendSuggestion('How do I order online?')">Order online</button>
-    </div>
-  `;
-}
-
-  if (text.includes("location") || text.includes("address") || text.includes("where")) {
-    return `
-      <div class="suggestions">
-        <button onclick="sendSuggestion('What is the phone number?')">Call Burger Flames</button>
-        <button onclick="sendSuggestion('How can I order from this location?')">Order from there</button>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="suggestions">
-      <button onclick="sendSuggestion('What burgers do you recommend?')">Burger picks</button>
-      <button onclick="sendSuggestion('Can I customize my burger?')">Customize burger</button>
-      <button onclick="sendSuggestion('How do I order from the website?')">How to order</button>
-    </div>
-  `;
 }
