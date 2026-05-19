@@ -435,40 +435,64 @@ style.textContent = `
 
 @media (max-width: 600px) {
   #chat-window {
-    width: calc(100vw - 24px);
-    height: calc(100vh - 24px);
-    right: 12px;
-    bottom: 12px;
-    border-radius: 18px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    width: 100vw;
+    height: 85vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 18px 18px 0 0;
   }
 
   #chat-toggle {
-    right: 16px;
-    bottom: 16px;
-    width: 58px;
-    height: 58px;
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
   }
 
   #chat-header {
     padding: 14px 16px;
   }
 
+  #chat-header .info h3 {
+    font-size: 18px;
+  }
+
+  #chat-header .info p {
+    font-size: 12px;
+  }
+
   #chat-messages {
     padding: 14px;
   }
 
+  .msg-user,
+  .msg-bot {
+    max-width: 100%;
+  }
+
   .bubble {
-    max-width: 85%;
+    max-width: 82vw;
     font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
   }
 
   .suggestions {
-    max-width: 100%;
+    max-width: 82vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .suggestions button {
     font-size: 12px;
     padding: 7px 10px;
+    white-space: normal;
   }
 
   #chat-input-area {
@@ -476,7 +500,12 @@ style.textContent = `
   }
 
   #chat-input {
+    min-width: 0;
     font-size: 14px;
+  }
+
+  #send-btn {
+    flex-shrink: 0;
   }
 }`;
 
