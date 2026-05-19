@@ -665,13 +665,9 @@ function shouldShowMenuSuggestions(userMessage, botReply) {
   const text = (userMessage + " " + botReply).toLowerCase();
 
   return (
-    text.includes("menu") ||
-    text.includes("burger") ||
     text.includes("inferno") ||
     text.includes("lovers delight") ||
     text.includes("crispy onion") ||
-    text.includes("recommend") ||
-    text.includes("custom")
   );
 }
     async function sendMessage(){
