@@ -1,4 +1,4 @@
-const CHATBOT_BACKEND_URL = "http://localhost:3000/chat";
+const CHATBOT_BACKEND_URL = "https://burger-flames.onrender.com/chat";
 
 document.body.insertAdjacentHTML("beforeend", `
    <!-- Toggle Button -->
