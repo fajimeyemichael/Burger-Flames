@@ -51,7 +51,17 @@ chatInput.addEventListener("blur", function () {
 });
 
 
-
+document.getElementById("chat-messages").innerHTML = `
+  <div class="msg-bot">
+    <div class="bot-icon">B</div>
+    <div class="bot-content">
+      <div class="bubble">
+        Hi, welcome to Burger Flames. How can I help today?
+      </div>
+      ${getSuggestions("start")}
+    </div>
+  </div>
+`;
 
 
 
@@ -509,7 +519,7 @@ style.textContent = `
   .msg-bot .bubble,
   .msg-user .bubble {
     max-width: 100%;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.45;
     word-break: break-word;
   }
@@ -524,7 +534,7 @@ style.textContent = `
   }
 
   .suggestions button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px 9px;
     white-space: normal;
   }
@@ -597,12 +607,14 @@ Your job:
 - Keep replies short, friendly, and clear.
 - Use simple language.
 - If the user asks for food suggestions, recommend items from the Burger Flames menu.
-- If the user asks something unrelated to Burger Flames, politely say: "I can only help with Burger Flames questions."
+- If the user asks something unrelated, gently say: "I’m here to help with Burger Flames questions, like menu, ordering, location, or support."
 
 Follow-up behavior:
-- After answering, you may ask one short relevant follow-up question when it truly helps.
-- The follow-up question should help the customer choose food, order from the website, find the location, or get more details.
-- Do not ask more than one question at a time.
+- Do not ask a follow-up question after every reply.
+- Ask a follow-up only when it clearly helps the customer make a choice or continue a support conversation.
+- Most replies should end without a question.
+- Do not ask a follow-up after greetings, thanks, short replies, contact details, location answers, policy answers, or fallback answers.
+- If the user seems finished, end warmly without asking another question.
 
 Back-off behavior:
 - Do not ask a follow-up question after every reply.
@@ -704,7 +716,6 @@ chatMessages.innerHTML += `
     <div class="bubble">
       ${aiReply}
     </div>
-    ${getSuggestions(messageInput)}
   </div>
   </div>
 `;
