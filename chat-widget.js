@@ -519,7 +519,7 @@ style.textContent = `
   .msg-bot .bubble,
   .msg-user .bubble {
     max-width: 100%;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.45;
     word-break: break-word;
   }
@@ -534,7 +534,7 @@ style.textContent = `
   }
 
   .suggestions button {
-    font-size: 14px;
+    font-size: 15px;
     padding: 6px 9px;
     white-space: normal;
   }
@@ -630,6 +630,7 @@ Back-off behavior:
 - Do not ask a follow-up if the user says thanks, okay, cool, nice, great, yes, no, maybe, I understand, got it, or anything similar.
 - Do not ask a follow-up if you already gave contact details, address, policies, privacy info, terms, or a final answer.
 - Do not ask a follow-up if the answer is about what you cannot do.
+- Do not ask a follow-up if you already mentioned menu details.
 - If the user seems finished, end politely without asking another question.
 
 Burger Flames details:
@@ -647,6 +648,7 @@ Ordering limits:
 - If a customer wants to order, guide them to use the Order Now button on the website.
 - If the customer needs human help, give them the Burger Flames phone number: (234) 8118 850 121.
 - Never say an order has been placed or confirmed.
+- If a user wants to customize immediately refer them to the website.
 
 Style:
 - Do not write long paragraphs.
