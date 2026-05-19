@@ -85,11 +85,11 @@ style.textContent = `
       right: 28px;
       width: 60px;
       height: 60px;
-      background: #E07B23;
+      background: #f63b1a;
       border-radius: 50%;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 20px rgba(224, 123, 35, 0.5);
+      box-shadow:  0 4px 20px rgba(224, 76, 35, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -99,7 +99,7 @@ style.textContent = `
  
     #chat-toggle:hover {
       transform: scale(1.08);
-      box-shadow: 0 6px 28px rgba(224, 123, 35, 0.7);
+      box-shadow:  0 4px 20px rgba(224, 76, 35, 0.5);
     }
  
     #chat-toggle svg {
@@ -147,7 +147,7 @@ style.textContent = `
  
     /* ===== HEADER ===== */
     #chat-header {
-      background: #E07B23;
+      background: #f63b1a;
       padding: 16px 20px;
       display: flex;
       align-items: center;
@@ -230,7 +230,7 @@ style.textContent = `
     }
  
     .msg-bot .bubble {
-      background: #2a2a2a;
+      background: #ff6200;
       color: #f0f0f0;
       padding: 10px 14px;
       border-radius: 18px 18px 18px 4px;
@@ -244,7 +244,7 @@ style.textContent = `
     .msg-bot .bot-icon {
       width: 28px;
       height: 28px;
-      background: #E07B23;
+      background: #ff6200;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -299,7 +299,7 @@ style.textContent = `
     }
  
     .msg-user .bubble {
-      background: #E07B23;
+      background:#ff6200;
       color: white;
       padding: 10px 14px;
       border-radius: 18px 18px 4px 18px;
@@ -321,7 +321,7 @@ style.textContent = `
  
     .quick-reply-btn {
       background: transparent;
-      border: 1.5px solid #E07B23;
+      border: 1.5px solid #ff6200;
       color: #E07B23;
       padding: 6px 14px;
       border-radius: 20px;
@@ -398,7 +398,7 @@ style.textContent = `
     #send-btn {
       width: 40px;
       height: 40px;
-      background: #E07B23;
+      background: #f63b1a;
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -412,7 +412,7 @@ style.textContent = `
  
     #send-btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 4px 16px rgba(224, 123, 35, 0.6);
+      box-shadow: 0 4px 16px rgba(224, 41, 35, 0.6);
     }
  
     #send-btn svg {
@@ -439,7 +439,7 @@ style.textContent = `
 
 .suggestions button {
   border: 1px solid #1a1a1a;
-  background: #ed974c;
+  background: #f63b1aad;
   color: white;
   padding: 6px 10px;
   border-radius: 20px;
@@ -448,7 +448,7 @@ style.textContent = `
 }
 
 .suggestions button:hover {
-  background: #e07b23;
+  background:#f63b1a;
   color: white;
 }
 
