@@ -1,4 +1,10 @@
 const CHATBOT_BACKEND_URL = "https://burger-flames.onrender.com/chat";
+if (!document.querySelector('meta[name="viewport"]')) {
+  const viewport = document.createElement("meta");
+  viewport.name = "viewport";
+  viewport.content = "width=device-width, initial-scale=1.0";
+  document.head.appendChild(viewport);
+}
 
 document.body.insertAdjacentHTML("beforeend", `
    <!-- Toggle Button -->
@@ -435,77 +441,103 @@ style.textContent = `
 
 @media (max-width: 600px) {
   #chat-window {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: auto;
-    width: 100vw;
-    height: 85vh;
-    max-width: none;
-    max-height: none;
-    border-radius: 18px 18px 0 0;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    height: 82vh;
+    border-radius: 18px;
+    z-index: 10000;
   }
 
   #chat-toggle {
     right: 18px;
     bottom: 18px;
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
+    z-index: 9999;
   }
 
   #chat-header {
-    padding: 14px 16px;
+    padding: 12px 14px;
+  }
+
+  #chat-header .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
   }
 
   #chat-header .info h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   #chat-header .info p {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   #chat-messages {
-    padding: 14px;
+    padding: 12px;
+    gap: 10px;
   }
 
-  .msg-user,
   .msg-bot {
-    max-width: 100%;
+    gap: 7px;
+    align-items: flex-end;
   }
 
-  .bubble {
-    max-width: 82vw;
-    font-size: 14px;
-    line-height: 1.4;
-    word-wrap: break-word;
+  .msg-bot .bot-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .bot-content {
+    max-width: calc(100vw - 76px);
+  }
+
+  .msg-bot .bubble,
+  .msg-user .bubble {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  .msg-user .bubble {
+    max-width: calc(100vw - 70px);
   }
 
   .suggestions {
-    max-width: 82vw;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 100%;
     gap: 6px;
   }
 
   .suggestions button {
     font-size: 12px;
-    padding: 7px 10px;
+    padding: 6px 9px;
     white-space: normal;
   }
 
   #chat-input-area {
-    padding: 12px;
+    padding: 10px;
+    gap: 8px;
   }
 
   #chat-input {
     min-width: 0;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 9px 14px;
   }
 
   #send-btn {
+    width: 38px;
+    height: 38px;
     flex-shrink: 0;
+  }
+
+  #powered-by {
+    font-size: 10px;
   }
 }`;
 
