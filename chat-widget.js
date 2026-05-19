@@ -667,7 +667,7 @@ function shouldShowMenuSuggestions(userMessage, botReply) {
   return (
     text.includes("inferno") ||
     text.includes("lovers delight") ||
-    text.includes("crispy onion") ||
+    text.includes("crispy onion")
   );
 }
     async function sendMessage(){
@@ -737,7 +737,8 @@ chatMessages.innerHTML += `
     <div class="bubble">
       ${aiReply}
     </div>
-    ${shouldShowSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
+    ${shouldShowMenuSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
+  </div>
   </div>
 `;
 
@@ -760,5 +761,4 @@ function getMenuSuggestions() {
  function sendSuggestion(text) {
   document.getElementById("chat-input").value = text;
   sendMessage();
-}
 }
