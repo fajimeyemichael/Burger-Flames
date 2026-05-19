@@ -666,7 +666,7 @@ Style:
 
 
 function shouldShowMenuSuggestions(userMessage, botReply) {
-  const text = userMessage.toLowerCase();
+  const text = (userMessage + " " + botReply) .toLowerCase();
 
   return (
     text.includes("menu") ||
@@ -754,15 +754,79 @@ chatMessages.scrollTop = chatMessages.scrollHeight;
  }
 
 
-function getMenuSuggestions() {
-  return `
-    <div class="suggestions">
-      <button onclick="sendSuggestion('Tell me about Inferno')">Inferno</button>
-      <button onclick="sendSuggestion('Tell me about Lovers Delight')">Lovers Delight</button>
-      <button onclick="sendSuggestion('Tell me about Crispy Onion')">Crispy Onion</button>
-      <button onclick="sendSuggestion('How do I order from the website?')">How to order</button>
-    </div>
-  `;
+function getMenuSuggestions(userMessage, botReply) {
+  const text = (userMessage + " " + botReply).toLowerCase();
+
+  if (text.includes("spicy") || text.includes("hot") || text.includes("heat")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('Tell me about Inferno')">Try Inferno</button>
+        <button onclick="sendSuggestion('What spicy toppings can I add?')">Spicy toppings</button>
+        <button onclick="sendSuggestion('What sauces go well with spicy burgers?')">Spicy sauces</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("inferno")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('Is Inferno very spicy?')">Spice level</button>
+        <button onclick="sendSuggestion('Can I customize Inferno?')">Customize Inferno</button>
+        <button onclick="sendSuggestion('How do I order Inferno from the website?')">Order guide</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("lovers delight")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('What makes Lovers Delight special?')">Why Lovers Delight?</button>
+        <button onclick="sendSuggestion('Can I customize Lovers Delight?')">Customize it</button>
+        <button onclick="sendSuggestion('How do I order Lovers Delight from the website?')">Order guide</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("crispy onion")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('What comes with Crispy Onion?')">What comes with it?</button>
+        <button onclick="sendSuggestion('Can I customize Crispy Onion?')">Customize it</button>
+        <button onclick="sendSuggestion('How do I order Crispy Onion from the website?')">Order guide</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("custom") || text.includes("topping") || text.includes("sauce") || text.includes("patty") || text.includes("bun")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('What toppings can I choose?')">Topping options</button>
+        <button onclick="sendSuggestion('Can I choose my bun and patty?')">Bun and patty</button>
+        <button onclick="sendSuggestion('What sauces go well with spicy burgers?')">Sauce ideas</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("order") || text.includes("delivery")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('How do I use the Order Now button?')">Use Order Now</button>
+        <button onclick="sendSuggestion('Can I customize before ordering?')">Customize first</button>
+        <button onclick="sendSuggestion('How can I contact support?')">Contact support</button>
+      </div>
+    `;
+  }
+
+  if (text.includes("location") || text.includes("address") || text.includes("where")) {
+    return `
+      <div class="suggestions">
+        <button onclick="sendSuggestion('What is Burger Flames phone number?')">Phone number</button>
+        <button onclick="sendSuggestion('How do I order from this location?')">Order from there</button>
+      </div>
+    `;
+  }
+
+  return "";
 }
 
  function sendSuggestion(text) {
