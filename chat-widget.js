@@ -35,7 +35,7 @@ document.body.insertAdjacentHTML("beforeend", `
       </button>
     </div>
  
-    <div id="powered-by">⚡ Powered by LIGHT</div>
+    <div id="powered-by">⚡ Powered by FAJIMEYE MICHAEL</div>
   </div>
 `);
 
