@@ -433,6 +433,53 @@ style.textContent = `
 }
 `;
 
+@media (max-width: 600px) {
+  #chat-window {
+    width: calc(100vw - 24px);
+    height: calc(100vh - 24px);
+    right: 12px;
+    bottom: 12px;
+    border-radius: 18px;
+  }
+
+  #chat-toggle {
+    right: 16px;
+    bottom: 16px;
+    width: 58px;
+    height: 58px;
+  }
+
+  #chat-header {
+    padding: 14px 16px;
+  }
+
+  #chat-messages {
+    padding: 14px;
+  }
+
+  .bubble {
+    max-width: 85%;
+    font-size: 14px;
+  }
+
+  .suggestions {
+    max-width: 100%;
+  }
+
+  .suggestions button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  #chat-input-area {
+    padding: 12px;
+  }
+
+  #chat-input {
+    font-size: 14px;
+  }
+}
+
 document.head.appendChild(style);
 
 
