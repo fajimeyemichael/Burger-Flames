@@ -230,7 +230,7 @@ style.textContent = `
     }
  
     .msg-bot .bubble {
-      background: #ff6200;
+      background: #af301a;
       color: #f0f0f0;
       padding: 10px 14px;
       border-radius: 18px 18px 18px 4px;
@@ -244,7 +244,7 @@ style.textContent = `
     .msg-bot .bot-icon {
       width: 28px;
       height: 28px;
-      background: #ff6200;
+      background: #f63b1a;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -299,7 +299,7 @@ style.textContent = `
     }
  
     .msg-user .bubble {
-      background:#ff6200;
+      background:#af301a;
       color: white;
       padding: 10px 14px;
       border-radius: 18px 18px 4px 18px;
@@ -439,7 +439,7 @@ style.textContent = `
 
 .suggestions button {
   border: 1px solid #1a1a1a;
-  background: #f63b1aad;
+  background: #ff62004e;
   color: white;
   padding: 6px 10px;
   border-radius: 20px;
