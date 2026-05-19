@@ -536,6 +536,10 @@ Style:
 
 chatMessages.scrollTop = chatMessages.scrollHeight;
 document.getElementById("chat-input").value = "";
+
+       document.querySelectorAll(".suggestions").forEach(function(suggestion) {
+  suggestion.remove();
+});
               
 
 
@@ -671,7 +675,7 @@ function getSuggestions(message) {
     <div class="suggestions">
       <button onclick="sendSuggestion('What burgers do you recommend?')">Burger picks</button>
       <button onclick="sendSuggestion('Can I customize my burger?')">Customize burger</button>
-      <button onclick="sendSuggestion('How can I order?')">Start order</button>
+      <button onclick="sendSuggestion('How do I order from the website?')">How to order</button>
     </div>
   `;
 }
