@@ -40,6 +40,16 @@ document.body.insertAdjacentHTML("beforeend", `
 `);
 
 
+const chatInput = document.getElementById("chat-input");
+
+chatInput.addEventListener("focus", function () {
+  document.body.classList.add("bf-keyboard-open");
+});
+
+chatInput.addEventListener("blur", function () {
+  document.body.classList.remove("bf-keyboard-open");
+});
+
 
 
 
@@ -365,7 +375,7 @@ style.textContent = `
       border-radius: 24px;
       padding: 10px 16px;
       color: #f0f0f0;
-      font-size: 14px;
+      font-size: 16px;
       font-family: 'Inter', sans-serif;
       outline: none;
       transition: border-color 0.2s;
@@ -526,7 +536,7 @@ style.textContent = `
 
   #chat-input {
     min-width: 0;
-    font-size: 13px;
+    font-size: 16px;
     padding: 9px 14px;
   }
 
@@ -539,6 +549,17 @@ style.textContent = `
   #powered-by {
     font-size: 10px;
   }
+
+  @media (max-width: 600px) {
+  body.bf-keyboard-open #chat-window {
+    height: 55vh;
+    bottom: 8px;
+  }
+
+  body.bf-keyboard-open #chat-messages {
+    padding-bottom: 8px;
+  }
+}
 }`;
 
 document.head.appendChild(style);
