@@ -657,6 +657,21 @@ Style:
 `
   }
 ];
+
+
+function shouldShowMenuSuggestions(userMessage, botReply) {
+  const text = (userMessage + " " + botReply).toLowerCase();
+
+  return (
+    text.includes("menu") ||
+    text.includes("burger") ||
+    text.includes("inferno") ||
+    text.includes("lovers delight") ||
+    text.includes("crispy onion") ||
+    text.includes("recommend") ||
+    text.includes("custom")
+  );
+}
     async function sendMessage(){
         const messageInput = document.getElementById("chat-input").value.trim();
              if (!messageInput) return;
@@ -724,6 +739,7 @@ chatMessages.innerHTML += `
     <div class="bubble">
       ${aiReply}
     </div>
+    ${shouldShowMenuSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
   </div>
   </div>
 `;
@@ -731,6 +747,18 @@ chatMessages.innerHTML += `
 
 chatMessages.scrollTop = chatMessages.scrollHeight;
  }
+
+
+function getMenuSuggestions() {
+  return `
+    <div class="suggestions">
+      <button onclick="sendSuggestion('Tell me about Inferno')">Inferno</button>
+      <button onclick="sendSuggestion('Tell me about Lovers Delight')">Lovers Delight</button>
+      <button onclick="sendSuggestion('Tell me about Crispy Onion')">Crispy Onion</button>
+      <button onclick="sendSuggestion('How do I order from the website?')">How to order</button>
+    </div>
+  `;
+}
 
  function sendSuggestion(text) {
   document.getElementById("chat-input").value = text;
