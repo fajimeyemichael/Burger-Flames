@@ -58,7 +58,7 @@ document.getElementById("chat-messages").innerHTML = `
       <div class="bubble">
         Hi, welcome to Burger Flames. How can I help today?
       </div>
-      ${getSuggestions("start")}
+      ${getMenuSuggestions()}
     </div>
   </div>
 `;
