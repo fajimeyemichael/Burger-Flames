@@ -56,9 +56,14 @@ document.getElementById("chat-messages").innerHTML = `
     <div class="bot-icon">B</div>
     <div class="bot-content">
       <div class="bubble">
-        Hi, welcome to Burger Flames. How can I help today?
+        Hi! welcome to Burger Flames🎉. I can help you choose a burger, explore offers, customize your order, or find the restaurant.
       </div>
-      ${getMenuSuggestions()}
+      <div class="suggestions">
+        <button onclick="sendSuggestion('What burgers do you recommend?')">Burger picks</button>
+        <button onclick="sendSuggestion('What offers are available?')">Current offers</button>
+        <button onclick="sendSuggestion('Can I customize my burger?')">Customize burger</button>
+        <button onclick="sendSuggestion('How do I order from the website?')">How to order</button>
+      </div>
     </div>
   </div>
 `;
@@ -604,24 +609,22 @@ You are the Burger Flames website helpfulassistant.
 
 Your job:
 - Answer only questions related to Burger Flames, its food, ordering, delivery, location, careers, news, food quality, allergens, privacy, and terms.
-- Keep replies short, friendly, and clear.
+- Keep replies short, very friendly, and clear.
 - Use simple language.
 - If the user asks for food suggestions, recommend items from the Burger Flames menu.
-- If the user asks something unrelated, gently say: "I’m here to help with Burger Flames questions, like menu, ordering, location, or support."
+
 
 Relevance behavior:
 - Stay focused on Burger Flames, but understand short follow-ups like "but", "why", "how", "yes", "no", "what do you mean", or "tell me more" using the previous conversation.
 - Do not treat short follow-ups as unrelated.
 - Only use the fallback if the user clearly asks about something unrelated to Burger Flames, such as politics, coding, math homework, sports, or another business.
 - If the user is unclear, ask a gentle clarifying question instead of using the fallback.
-- For unrelated questions, say: "I’m mainly here to help with Burger Flames, like menu, ordering, location, or support."
+- For unrelated questions, say: "I’m sorry but I'm mainly here to help with Burger Flames, like menu, ordering, location, or support."
 
 Follow-up behavior:
-- Ask a short follow-up question when the user is choosing food, asking for recommendations, customizing a burger, or deciding how to order.
-- Do not ask follow-up questions after every reply.
+- Ask a short follow-up question when the user is  asking for recommendations, or deciding how to order.
+- Do not ask questions everytime.
 - Do not ask a follow-up after simple greetings, thanks, okay, yes/no replies, contact details, location answers, policy answers, or fallback answers.
-- If the user asks about a menu item, you may ask if they want flavor details, customization ideas, or ordering guidance.
-- If the user asks for recommendations, ask one helpful preference question such as whether they prefer spicy, crunchy, cheesy, or mild.
 - Most follow-up questions should be about helping the user choose, customize, or order from the website.
 
 Back-off behavior:
@@ -643,16 +646,30 @@ Burger Flames details:
 - Burger Flames lets customers choose their bun, patty, toppings, and sauces.
 - Website sections include Order, Menu, Offers, Restaurants, Careers, News, Terms and Conditions, Privacy Policy, Allergens Info, Food Quality, and Responsibility.
 
+Burger Flames offers:
+- Weekday Lunch Flame Combo: Any signature burger + fries + drink at a special weekday rate. Available Monday to Friday, 12–3pm. Dine-in and delivery.
+- First Order Free Flame Sauce: New customers get a free side of signature flame sauce on their first order, while stocks last.
+- Family Stack Bundle: Four burgers, two large fries, and four drinks. Built for groups. Available all week with delivery available.
+
+Burger customizer:
+- Bun options: Brioche, Sesame, Pretzel, Lettuce Wrap.
+- Patty options: Beef Classic, Smoked Beef, Spicy Chicken, Plant-Based.
+- Toppings: Cheddar, Bacon, Jalapeños, Onion Rings, Pickles, Lettuce, Tomato.
+- Sauces: Flame Sauce, Smoky BBQ, Garlic Aioli, Chipotle Mayo, Honey Mustard.
+
 Ordering limits:
 - You cannot place orders, take payments, reserve food, or confirm delivery.
 - If a customer wants to order, guide them to use the Order Now button on the website.
 - If the customer needs human help, give them the Burger Flames phone number: (234) 8118 850 121.
 - Never say an order has been placed or confirmed.
 - If a user wants to customize immediately refer them to the website.
-- Do not ask "Would you like to order..." because you cannot take the order inside chat.
+- Do not ask "Would you like to order/add customization..." because you cannot take the order inside chat.
 - When the user seems ready to order, end with clear guidance instead of a question.
 - Say: "To continue, use the Order Now button on the website."
 - If customization is discussed, remind the user they can customize on the website.
+
+
+Use these emojis interchangeably to express emotion, action or feeling depending on context "😊✅🎉👌😉"
 
 Style:
 - Do not write long paragraphs.
@@ -692,7 +709,15 @@ function shouldShowMenuSuggestions(userMessage, botReply) {
     text.includes("address") ||
     text.includes("support") ||
     text.includes("contact") ||
-    text.includes("phone")
+    text.includes("offer") ||
+text.includes("deal") ||
+text.includes("combo") ||
+text.includes("bundle") ||
+text.includes("discount") ||
+text.includes("bun") ||
+text.includes("patty") ||
+text.includes("sauce") ||
+text.includes("flame sauce")
   );
 }
     async function sendMessage(){
@@ -785,6 +810,45 @@ function getMenuSuggestions(userMessage, botReply) {
     `;
   }
 
+  if (text.includes("offer") || text.includes("deal") || text.includes("combo") || text.includes("bundle") || text.includes("discount")) {
+  return `
+    <div class="suggestions">
+      <button onclick="sendSuggestion('Tell me about the Weekday Lunch Flame Combo')">Lunch combo</button>
+      <button onclick="sendSuggestion('Tell me about the Free Flame Sauce offer')">Free sauce</button>
+      <button onclick="sendSuggestion('Tell me about the Family Stack Bundle')">Family bundle</button>
+    </div>
+  `;
+}
+
+if (text.includes("bun")) {
+  return `
+    <div class="suggestions">
+      <button onclick="sendSuggestion('What bun options are available?')">Bun options</button>
+      <button onclick="sendSuggestion('Which bun goes well with Inferno?')">Best for Inferno</button>
+      <button onclick="sendSuggestion('Can I choose a lettuce wrap?')">Lettuce wrap</button>
+    </div>
+  `;
+}
+
+if (text.includes("patty")) {
+  return `
+    <div class="suggestions">
+      <button onclick="sendSuggestion('What patty options are available?')">Patty options</button>
+      <button onclick="sendSuggestion('Tell me about the Spicy Chicken patty')">Spicy chicken</button>
+      <button onclick="sendSuggestion('Do you have plant-based patties?')">Plant-based</button>
+    </div>
+  `;
+}
+
+if (text.includes("sauce") || text.includes("flame sauce") || text.includes("bbq") || text.includes("aioli") || text.includes("chipotle") || text.includes("mustard")) {
+  return `
+    <div class="suggestions">
+      <button onclick="sendSuggestion('What sauces are available?')">Sauce list</button>
+      <button onclick="sendSuggestion('Which sauce goes with Inferno?')">Inferno sauce</button>
+      <button onclick="sendSuggestion('Tell me about Flame Sauce')">Flame Sauce</button>
+    </div>
+  `;
+}
   if (text.includes("inferno")) {
     return `
       <div class="suggestions">
