@@ -662,9 +662,12 @@ Style:
 
 
 function shouldShowMenuSuggestions(userMessage, botReply) {
-  const text = (userMessage + " " + botReply).toLowerCase();
+  const text = userMessage.toLowerCase();
 
   return (
+    text.includes("menu") ||
+    text.includes("recommend") ||
+    text.includes("burger") ||
     text.includes("inferno") ||
     text.includes("lovers delight") ||
     text.includes("crispy onion")
