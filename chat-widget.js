@@ -666,7 +666,7 @@ Style:
 
 
 function shouldShowMenuSuggestions(userMessage, botReply) {
-  const text = (userMessage + " " + botReply) .toLowerCase();
+  const text = (userMessage + " " + botReply).toLowerCase();
 
   return (
     text.includes("menu") ||
@@ -674,7 +674,25 @@ function shouldShowMenuSuggestions(userMessage, botReply) {
     text.includes("burger") ||
     text.includes("inferno") ||
     text.includes("lovers delight") ||
-    text.includes("crispy onion")
+    text.includes("crispy onion") ||
+    text.includes("spicy") ||
+    text.includes("hot") ||
+    text.includes("heat") ||
+    text.includes("mild") ||
+    text.includes("crunchy") ||
+    text.includes("custom") ||
+    text.includes("customize") ||
+    text.includes("topping") ||
+    text.includes("sauce") ||
+    text.includes("patty") ||
+    text.includes("bun") ||
+    text.includes("order") ||
+    text.includes("delivery") ||
+    text.includes("location") ||
+    text.includes("address") ||
+    text.includes("support") ||
+    text.includes("contact") ||
+    text.includes("phone")
   );
 }
     async function sendMessage(){
@@ -744,7 +762,7 @@ chatMessages.innerHTML += `
     <div class="bubble">
       ${aiReply}
     </div>
-    ${shouldShowMenuSuggestions(messageInput, aiReply) ? getMenuSuggestions() : ""}
+    ${shouldShowMenuSuggestions(messageInput, aiReply) ? getMenuSuggestions(messageInput, aiReply) : ""}
   </div>
   </div>
 `;
