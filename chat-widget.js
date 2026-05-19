@@ -431,7 +431,7 @@ style.textContent = `
   flex-direction: column;
   align-items: flex-start;
 }
-`;
+
 
 @media (max-width: 600px) {
   #chat-window {
@@ -478,7 +478,7 @@ style.textContent = `
   #chat-input {
     font-size: 14px;
   }
-}
+}`;
 
 document.head.appendChild(style);
 
